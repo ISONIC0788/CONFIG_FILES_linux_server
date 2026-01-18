@@ -1,0 +1,12 @@
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    enp0s3:                        # Changed from 'enp3s0' to match your machine
+      addresses:
+        - 10.0.xxx.xxx/24             # Your static IP (kept same as current to be safe)
+      routes:                      # 'routes' is the modern replacement for 'gateway4'
+        - to: default
+          via: 10.0.xx.xx            # The standard VirtualBox Gateway IP
+      nameservers:
+        addresses: [1.1.1.1, 1.0.0.1]
